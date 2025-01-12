@@ -14,3 +14,15 @@ response = {
     "amount": config["account"]["baseOrderValue"],
 }
 """
+def your_strategy(candle):
+    if candle["rsi"]<30:
+        response={
+            "buy": True,
+            "amount":config["baseOrderValue"],
+            "price":candle["close"],
+        }
+    else:
+        response= {
+            "buy":False
+        }
+    return response
